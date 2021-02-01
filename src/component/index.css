@@ -1,0 +1,31 @@
+
+.header {
+    width: 100%;
+    display: flex;
+}
+
+.flex {
+    display: flex;
+    padding: 0 30px;
+    margin: 10px 0;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+.border {
+    border-right: 2px solid #eee;
+}
+
+.headerText {
+    margin-right: 10px;
+}
+
+.iconStyle {
+    border: 2px solid red;
+    borderRadius:50%;
+    color: red;
+    padding: 2px
+}
+
+.boxW :global(.ant-steps-item-finish .ant-steps-item-container .ant-steps-item-tail::after) {
+    background-color: red;
+}
