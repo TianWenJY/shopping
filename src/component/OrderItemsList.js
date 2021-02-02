@@ -49,15 +49,19 @@ import {
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Stack
+    Stack,
+    Select,
+    Radio,
+    RadioGroup
 } from "@chakra-ui/react"
 import { AddIcon, MinusIcon, CalendarIcon,Search2Icon, StarIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import "antd/dist/antd.css";
-import { Steps,Select } from 'antd';
+import { Steps } from 'antd';
 import qr from '../images/qrcode.png';
 
 import ReceiptImages from "./ReceiptImages/ReceiptImages";
 import ShippintSteppre from "./ShippingStepper/ShippingStepper";
+import {NowDivider} from "./OrderPage/Suborders/Suborders.styles";
 
 const { Option } = Select;
 
@@ -2459,19 +2463,47 @@ function OrderItemsList (props) {
                             <DrawerBody>
                                 <Stack spacing="24px">
                                     <Box>
-                                        <FormLabel htmlFor="username">Name</FormLabel>
-                                        <Input
-                                            ref={firstField}
-                                            id="username"
-                                            placeholder="Please enter user name"
-                                        />
+                                       Purchased within
                                     </Box>
-
+                                    <RadioGroup>
+                                        <Stack>
+                                            <Flex justify="space-between">
+                                                <Radio value="1">
+                                                    Last Six Months
+                                                </Radio>
+                                                <Box>10</Box>
+                                            </Flex>
+                                            <Flex justify="space-between">
+                                                <Radio value="2">Last Nine Months</Radio>
+                                                <Box>10</Box>
+                                            </Flex>
+                                            <Flex justify="space-between">
+                                                <Radio value="3">Last Year</Radio>
+                                                <Box>10</Box>
+                                            </Flex>
+                                            <Flex justify="space-between">
+                                                <Radio value="4">Last Two Year</Radio>
+                                                <Box>10</Box>
+                                            </Flex>
+                                        </Stack>
+                                    </RadioGroup>
+                                    <Divider orientation="horizontal"/>
                                     <Box>
-                                        <FormLabel htmlFor="owner">Select Owner</FormLabel>
-                                        <Select id="owner" defaultValue="segun">
-                                            <option value="segun">Segun Adebayo</option>
-                                            <option value="kola">Kola Tioluwani</option>
+                                        <FormLabel htmlFor="owner">Purchased within</FormLabel>
+                                        {/*defaultValue="segun"*/}
+                                        <Select placeholder="Select option" onChange={handleChange} value="2">
+                                            <option value="2">All</option>
+                                            <option value="0">In-Store</option>
+                                            <option value="1">Online</option>
+                                        </Select>
+                                    </Box>
+                                    <Divider orientation="horizontal"/>
+                                    <Box>
+                                        <FormLabel htmlFor="owner">Sort by</FormLabel>
+                                        {/*defaultValue="segun"*/}
+                                        <Select value="asc">
+                                             <option value="asc">Date(Newest First)</option>
+                                             <option value="desc">Date(Oldest First)</option>
                                         </Select>
                                     </Box>
                                 </Stack>
@@ -2479,9 +2511,9 @@ function OrderItemsList (props) {
 
                             <DrawerFooter borderTopWidth="1px">
                                 <Button variant="outline" mr={3} onClick={onClose}>
-                                    Cancel
+                                    Clear All
                                 </Button>
-                                <Button colorScheme="blue">Submit</Button>
+                                <Button colorScheme="blue">View Results</Button>
                             </DrawerFooter>
                         </DrawerContent>
                     </DrawerOverlay>
