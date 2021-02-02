@@ -14,6 +14,7 @@ import {
     Container,
     InputGroup,
     InputRightElement,
+    InputLeftElement,
     Input,
     Divider,
     AccordionItem,
@@ -22,7 +23,6 @@ import {
     Box,
     Text,
     Code,
-    Lorem,
     Stat,
     Button,
     Center,
@@ -39,7 +39,7 @@ import {
     ModalBody,
     ModalCloseButton
 } from "@chakra-ui/react"
-import { AddIcon, MinusIcon, CalendarIcon,Search2Icon, StarIcon } from '@chakra-ui/icons'
+import { AddIcon, MinusIcon, CalendarIcon,Search2Icon, StarIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import "antd/dist/antd.css";
 import { Steps,Select } from 'antd';
 import qr from '../images/qrcode.png';
@@ -50,160 +50,6 @@ import ShippintSteppre from "./ShippingStepper/ShippingStepper";
 const { Option } = Select;
 
 const { Step } = Steps;
-
-
-// const data = [
-//     {
-//         "orderId": "14523",
-//         "userId": 11111,
-//         "michaelsOrderId": null,
-//         "productSubTotal": null,
-//         "productTotal": null,
-//         "orderTotal": 110,
-//         "orderType": 0,
-//         "shippingTotal": null,
-//         "taxTotal": null,
-//         "currency": null,
-//         "adjustedMerchandizeTotalTax": null,
-//         "adjustedShippingTotalTax": null,
-//         "shippingTotalTax": null,
-//         "merchandizeTotalTax": null,
-//         "orderToken": null,
-//         "storeId": null,
-//         "zipCode": null,
-//         "shippingStatus": null,
-//         "createdTime": "2020-12-10T18:58:45Z",
-//         "taxation": null,
-//         "email": null,
-//         "status": "Order Shipped",
-//         "orderItems": [
-//             {
-//                 "itemId": 45,
-//                 "orderId": "14523",
-//                 "sellerStoreId": null,
-//                 "thumbnail": null,
-//                 "productId": null,
-//                 "scheduleId": null,
-//                 "michaelsProductId": null,
-//                 "productName": "Item1",
-//                 "quantity": 2,
-//                 "basePrice": 55,
-//                 "price": 110,
-//                 "priceAfterItemDiscount": null,
-//                 "priceAfterOrderDiscount": null,
-//                 "adjustedTax": null,
-//                 "tax": null,
-//                 "taxBasis": null,
-//                 "taxRate": null,
-//                 "productType": null,
-//                 "gift": null,
-//                 "giftMessage": null,
-//                 "itemDescription": "Explore the artist in you with this coloring poster from RoseArt.",
-//                 "createdTime": null
-//             }
-//         ]
-//     },
-//     {
-//         "orderId": "13980",
-//         "userId": 11111,
-//         "michaelsOrderId": null,
-//         "productSubTotal": null,
-//         "productTotal": null,
-//         "orderTotal": 115,
-//         "orderType": 1,
-//         "shippingTotal": null,
-//         "taxTotal": null,
-//         "currency": null,
-//         "adjustedMerchandizeTotalTax": null,
-//         "adjustedShippingTotalTax": null,
-//         "shippingTotalTax": null,
-//         "merchandizeTotalTax": null,
-//         "orderToken": null,
-//         "storeId": null,
-//         "zipCode": null,
-//         "shippingStatus": null,
-//         "createdTime": "2020-12-14T13:10:24Z",
-//         "taxation": null,
-//         "email": null,
-//         "status": "Order Shipped",
-//         "orderItems": [
-//             {
-//                 "itemId": 89,
-//                 "orderId": "13980",
-//                 "sellerStoreId": null,
-//                 "thumbnail": null,
-//                 "productId": null,
-//                 "scheduleId": null,
-//                 "michaelsProductId": null,
-//                 "productName": "Item5",
-//                 "quantity": 1,
-//                 "basePrice": 115,
-//                 "price": 115,
-//                 "priceAfterItemDiscount": null,
-//                 "priceAfterOrderDiscount": null,
-//                 "adjustedTax": null,
-//                 "tax": null,
-//                 "taxBasis": null,
-//                 "taxRate": null,
-//                 "productType": null,
-//                 "gift": null,
-//                 "giftMessage": null,
-//                 "itemDescription": "These neon crayons from Crayola are sure to add vibrancy to your art projects for that extra 'Wow' factor.",
-//                 "createdTime": null
-//             }
-//         ]
-//     },
-//     {
-//         "orderId": "14523",
-//         "userId": 11111,
-//         "michaelsOrderId": null,
-//         "productSubTotal": null,
-//         "productTotal": null,
-//         "orderTotal": 110,
-//         "orderType": 3,
-//         "shippingTotal": null,
-//         "taxTotal": null,
-//         "currency": null,
-//         "adjustedMerchandizeTotalTax": null,
-//         "adjustedShippingTotalTax": null,
-//         "shippingTotalTax": null,
-//         "merchandizeTotalTax": null,
-//         "orderToken": null,
-//         "storeId": null,
-//         "zipCode": null,
-//         "shippingStatus": null,
-//         "createdTime": "2020-12-10T18:58:45Z",
-//         "taxation": null,
-//         "email": null,
-//         "status": "Order Shipped",
-//         "orderItems": [
-//             {
-//                 "itemId": 45,
-//                 "orderId": "14523",
-//                 "sellerStoreId": null,
-//                 "thumbnail": null,
-//                 "productId": null,
-//                 "scheduleId": null,
-//                 "michaelsProductId": null,
-//                 "productName": "Item1",
-//                 "quantity": 2,
-//                 "basePrice": 55,
-//                 "price": 110,
-//                 "priceAfterItemDiscount": null,
-//                 "priceAfterOrderDiscount": null,
-//                 "adjustedTax": null,
-//                 "tax": null,
-//                 "taxBasis": null,
-//                 "taxRate": null,
-//                 "productType": null,
-//                 "gift": null,
-//                 "giftMessage": null,
-//                 "itemDescription": "Explore the artist in you with this coloring poster from RoseArt.",
-//                 "createdTime": null
-//             }
-//         ]
-//     },
-// ];
 
 const data =  {
     "content": [
@@ -2503,67 +2349,80 @@ function OrderItemsList (props) {
 
     return (
         <div>
-            {
-                props.isShow == 1 ? <Flex>
-                    <InputGroup size="md" w="30rem" margin="4">
-                        <Input
-                            borderRadius="50px"
-                            pr="4.5rem"
-                            placeholder="Search Orders "
-                            value={order}
-                            onChange={handleChange}
-                        />
-                        <InputRightElement width="4.5rem">
-                            <Button size="sm" borderRadius="50%" onClick={handleClick}  >
-                                <Search2Icon fontSize="16px" style={{color: '#fff'}}/>
-                            </Button>
-                        </InputRightElement>
-                    </InputGroup>
-                    <div className="flex" style={{paddingLeft:"10px"}}>
-                        Results (4)
-                    </div>
-                </Flex>: null
-            }
-            <div className="header">
-                <div className="flex border">
-                    <div  className="headerText">Purchased within</div>
-                    <div>
-                        <Select  value="0" style={{ width: 160 }}>
-                            <option value="0">Past Six Months</option>
-                            <option value="1">Past Year</option>
-                            <option value="2">Past Two Years</option>
-                        </Select>
-                    </div>
-                </div>
-                <div  className="flex border">
-                    <div  className="headerText">Purchased from</div>
-                    <div>
-                        <Select onChange={handleChange} value="2" style={{ width: 120 }}>
-                            <option value="2">All</option>
-                            <option value="0">In-Store</option>
-                            <option value="1">Online</option>
-                        </Select>
-                    </div>
-                </div>
-                <div  className="flex">
-                    <div  className="headerText">Sort by</div>
-                    <div>
-                        <Select value="asc" style={{ width: 160 }}>
-                            <option value="asc">Date(Newest First)</option>
-                            <option value="desc">Date(Oldest First)</option>
-                        </Select>
-                    </div>
-                </div>
-                <div  className="flex">
-                    <div  className="headerText">Sort by</div>
-                    <div>
-                        <Select value="asc" style={{ width: 160 }}>
-                            <option value="asc">Price($ - $$$)</option>
-                            <option value="desc">Price($$$ - $)</option>
-                        </Select>
-                    </div>
-                </div>
-            </div>
+            {/*{*/}
+            {/*    props.isShow == 1 ? <Flex>*/}
+            {/*        <InputGroup size="md" w="30rem" margin="4">*/}
+            {/*            <Input*/}
+            {/*                borderRadius="50px"*/}
+            {/*                pr="4.5rem"*/}
+            {/*                placeholder="Search Orders "*/}
+            {/*                value={order}*/}
+            {/*                onChange={handleChange}*/}
+            {/*            />*/}
+            {/*            <InputRightElement width="4.5rem">*/}
+            {/*                <Button size="sm" borderRadius="50%" onClick={handleClick}  >*/}
+            {/*                    <Search2Icon fontSize="16px" style={{color: '#fff'}}/>*/}
+            {/*                </Button>*/}
+            {/*            </InputRightElement>*/}
+            {/*        </InputGroup>*/}
+            {/*        <div className="flex" style={{paddingLeft:"10px"}}>*/}
+            {/*            Results (4)*/}
+            {/*        </div>*/}
+            {/*    </Flex>: null*/}
+            {/*}*/}
+            {/*<div className="header">*/}
+            {/*    <div className="flex border">*/}
+            {/*        <div  className="headerText">Purchased within</div>*/}
+            {/*        <div>*/}
+            {/*            <Select  value="0" style={{ width: 160 }}>*/}
+            {/*                <option value="0">Past Six Months</option>*/}
+            {/*                <option value="1">Past Year</option>*/}
+            {/*                <option value="2">Past Two Years</option>*/}
+            {/*            </Select>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div  className="flex border">*/}
+            {/*        <div  className="headerText">Purchased from</div>*/}
+            {/*        <div>*/}
+            {/*            <Select onChange={handleChange} value="2" style={{ width: 120 }}>*/}
+            {/*                <option value="2">All</option>*/}
+            {/*                <option value="0">In-Store</option>*/}
+            {/*                <option value="1">Online</option>*/}
+            {/*            </Select>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div  className="flex">*/}
+            {/*        <div  className="headerText">Sort by</div>*/}
+            {/*        <div>*/}
+            {/*            <Select value="asc" style={{ width: 160 }}>*/}
+            {/*                <option value="asc">Date(Newest First)</option>*/}
+            {/*                <option value="desc">Date(Oldest First)</option>*/}
+            {/*            </Select>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div  className="flex">*/}
+            {/*        <div  className="headerText">Sort by</div>*/}
+            {/*        <div>*/}
+            {/*            <Select value="asc" style={{ width: 160 }}>*/}
+            {/*                <option value="asc">Price($ - $$$)</option>*/}
+            {/*                <option value="desc">Price($$$ - $)</option>*/}
+            {/*            </Select>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <Flex alignItems="center">
+                <InputGroup size="md" w="30rem" margin="8">
+                    <InputLeftElement
+                        pointerEvents="none"
+                        children={<Search2Icon color="gray.300" />}
+                    />
+                    <Input type="tel" placeholder="Search Orders" />
+                </InputGroup>
+
+                <Button rightIcon={<ArrowForwardIcon />} colorScheme="teal" variant="outline">
+                   Filters
+                </Button>
+            </Flex>
             <div>
                 {
                     data.content.map((item, index) => {
