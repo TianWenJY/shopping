@@ -29,7 +29,7 @@ export default function Suborders(props) {
     const sitem = props.sitem;
 
   return (
-      <Box>
+      <Box style={{paddingLeft: '80px'}}>
           <OrderHeader sitem = { sitem }></OrderHeader>
           <Divider orientation="horizontal" />
           <Box padding="6"  pl={50}>
@@ -59,6 +59,14 @@ export default function Suborders(props) {
                   <Flex justify="flex-end">
                       <TenPercent>Subtotal</TenPercent>
                       <TenPercent>$1,500.00</TenPercent>
+                  </Flex>
+                  <Flex justify="flex-end">
+                      <TenPercent>Discount</TenPercent>
+                      <TenPercent>0.00</TenPercent>
+                  </Flex>
+                  <Flex justify="flex-end">
+                      <TenPercent>Shipping Fee</TenPercent>
+                      <TenPercent>FREE</TenPercent>
                   </Flex>
                   <Flex  justify="flex-end">
                       <TenPercent>Tax</TenPercent>

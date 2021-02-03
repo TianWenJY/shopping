@@ -1,19 +1,17 @@
-import './index.css';
-import imgURL from '../images/icon.png';
-import imgIcon from '../images/img1.png';
 import React, {useState} from 'react';
 // import {React, useState, useEffect} from 'react';
 import { useDisclosure } from "@chakra-ui/react"
-import Suborders from "./OrderPage/Suborders/Suborders";
-
+import Suborders from "../OrderPage/Suborders/Suborders";
+import {
+    NowAddIcon,
+    NowMinusIcon
+} from './OrderItemsList.styles';
 import axios from 'axios'
 
 
 import {
     Accordion,
-    Container,
     InputGroup,
-    InputRightElement,
     InputLeftElement,
     Input,
     Divider,
@@ -25,19 +23,9 @@ import {
     Code,
     Stat,
     Button,
-    Center,
     StatNumber,
     StatHelpText,
-    Heading,
     Flex,
-    Modal,
-    ModalOverlay,
-    CloseButton,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
     Drawer,
     DrawerBody,
     DrawerFooter,
@@ -45,27 +33,18 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     Stack,
     Select,
     Radio,
     RadioGroup
 } from "@chakra-ui/react"
-import { AddIcon, MinusIcon, CalendarIcon,Search2Icon, StarIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { AddIcon, MinusIcon,Search2Icon, ArrowForwardIcon } from '@chakra-ui/icons'
 import "antd/dist/antd.css";
 import { Steps } from 'antd';
-import qr from '../images/qrcode.png';
 
-import ReceiptImages from "./ReceiptImages/ReceiptImages";
-import ShippintSteppre from "./ShippingStepper/ShippingStepper";
-import {NowDivider} from "./OrderPage/Suborders/Suborders.styles";
+import ReceiptImages from "../ReceiptImages/ReceiptImages";
 
-const { Option } = Select;
-
-const { Step } = Steps;
 
 const data =  {
     "content": [
@@ -2293,26 +2272,26 @@ const data =  {
             ]
         }
     ],
-        "pageNum": 0,
-        "pageSize": 10,
-        "totalPages": 1
+    "pageNum": 0,
+    "pageSize": 10,
+    "totalPages": 1
 }
 
 
 const lists = {
-        "store": "#0000",
-        "store1": "(000) 000-0000",
-        "num": '0000 STREET NAME,SUITE 000CITY,STATE 0000',
-        "num1": 'CITY,STATE 0000',
-        "number": '0000000000',
-        "time": '12/31/2021    12:00AM',
-        "money1": '$1500.00',
-        'money2': '$1500.00',
-         "money3": '$1500.00',
-        'money4': '$1500.00',
-        "money5": '****9876',
-       'money6': '$1500.00'
-    }
+    "store": "#0000",
+    "store1": "(000) 000-0000",
+    "num": '0000 STREET NAME,SUITE 000CITY,STATE 0000',
+    "num1": 'CITY,STATE 0000',
+    "number": '0000000000',
+    "time": '12/31/2021    12:00AM',
+    "money1": '$1500.00',
+    'money2': '$1500.00',
+    "money3": '$1500.00',
+    'money4': '$1500.00',
+    "money5": '****9876',
+    'money6': '$1500.00'
+}
 
 
 function getList() {
@@ -2324,9 +2303,9 @@ function getList() {
             "subtractMonths":"",
             "orderType":""
         }).then(res=>{
-         console.log(res);
+        console.log(res);
 
-        })
+    })
 }
 
 
@@ -2334,7 +2313,7 @@ function getList() {
 
 
 function OrderItemsList (props) {
-   // render() {
+    // render() {
 
     const [order, setOrder] = React.useState("");
 
@@ -2350,22 +2329,6 @@ function OrderItemsList (props) {
         setOrder(event.target.value)
     }
 
-    const showViewFuc =(index) => {
-        console.log(index)
-        setNum(index)
-        setShowView(true)
-    }
-
-    const closeViewFuc =() => {
-        setShowView(false)
-    }
-
-
-
-    const handleClick = (e) => {
-        console.log(order)
-        // this.getList();
-    }
 
 
 
@@ -2444,7 +2407,7 @@ function OrderItemsList (props) {
                 </InputGroup>
 
                 <Button rightIcon={<ArrowForwardIcon />} colorScheme="#000" variant="outline" onClick={onOpen}>
-                   Filters
+                    Filters
                 </Button>
 
                 <Drawer
@@ -2463,7 +2426,7 @@ function OrderItemsList (props) {
                             <DrawerBody>
                                 <Stack spacing="24px">
                                     <Box>
-                                       Purchased within
+                                        Purchased within
                                     </Box>
                                     <RadioGroup>
                                         <Stack>
@@ -2502,8 +2465,8 @@ function OrderItemsList (props) {
                                         <FormLabel htmlFor="owner">Sort by</FormLabel>
                                         {/*defaultValue="segun"*/}
                                         <Select value="asc">
-                                             <option value="asc">Date(Newest First)</option>
-                                             <option value="desc">Date(Oldest First)</option>
+                                            <option value="asc">Date(Newest First)</option>
+                                            <option value="desc">Date(Oldest First)</option>
                                         </Select>
                                     </Box>
                                 </Stack>
@@ -2525,32 +2488,32 @@ function OrderItemsList (props) {
                 {
                     data.content.map((item, index) => {
                         return (
-                            <Accordion  key={ index } margin="4" allowMultiple style={{background:'#fff'}}>
+                            <Accordion  key={ index } margin="4" allowMultiple style={{background:'#fff', border:'#000', borderLeft: '1px solid #000', borderRight: '1px solid #000'}}>
 
                                 <AccordionItem>
                                     {({ isExpanded }) => (
                                         <>
 
-                                                <Box style={{display: 'flex',  justifyContent: "space-between", width: '100%'}}>
-                                                    <AccordionButton>
+                                            <Box style={{display: 'flex',  justifyContent: "space-between", width: '100%'}}>
+                                                <AccordionButton>
                                                     <Box>
                                                         <Flex>
                                                             {isExpanded ? (
-                                                                <Box    w="100px" style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
-                                                                    <MinusIcon fontSize="16px" style={{border: '2px solid red', borderRadius:'50%', color: 'red',padding: '2px'}}/>
-                                                                </Box>
+                                                                <Flex    w="100px" justify="center" alignItems="center">
+                                                                    <NowMinusIcon fontSize="16px"/>
+                                                                </Flex>
 
                                                             ) : (
-                                                                <Box    w="100px" style={{display: "flex", alignItems: 'center', justifyContent: 'center'}}>
-                                                                    <AddIcon fontSize="16px" style={{border: '2px solid red', borderRadius:'50%', color: 'red',padding: '2px'}}/>
-                                                                </Box>
+                                                                <Flex    w="100px" justify="center" alignItems="center">
+                                                                    <NowAddIcon fontSize="16px" />
+                                                                </Flex>
                                                             )}
-                                                            <Stat w="150px">
+                                                            <Stat w="200px">
                                                                 <StatHelpText>order Date</StatHelpText>
                                                                 <StatNumber fontSize="20px">{item.paymentTransactions[0].createdTime}</StatNumber>
                                                             </Stat>
                                                             <Stat  w="150px">
-                                                                <StatHelpText>Reciept Number</StatHelpText>
+                                                                <StatHelpText>Order Number</StatHelpText>
                                                                 <StatNumber fontSize="20px">{item.paymentTransactions[0].parentOrderNumber}</StatNumber>
                                                             </Stat>
                                                             <Stat  w="150px">
@@ -2563,20 +2526,20 @@ function OrderItemsList (props) {
                                                             </Stat>
                                                         </Flex>
                                                     </Box>
-                                                    </AccordionButton>
-                                                    <ReceiptImages></ReceiptImages>
+                                                </AccordionButton>
+                                                <ReceiptImages></ReceiptImages>
 
-                                                </Box>
+                                            </Box>
 
-                                             <AccordionPanel>
+                                            <AccordionPanel>
 
-                                                    {
-                                                        item.subOrders.map((sitem, index) => {
-                                                            return (
-                                                                <Suborders sitem={ sitem }></Suborders>
-                                                            );
-                                                        })
-                                                    }
+                                                {
+                                                    item.subOrders.map((sitem, index) => {
+                                                        return (
+                                                            <Suborders sitem={ sitem }></Suborders>
+                                                        );
+                                                    })
+                                                }
 
                                             </AccordionPanel>
                                         </>
@@ -2591,7 +2554,7 @@ function OrderItemsList (props) {
             {/*<Pagecomponent pageCallbackFn={getCurrentPage} totalPage={2} currentPage={1}></Pagecomponent>*/}
         </div>
     );
-   // }
+    // }
 };
 
 export default OrderItemsList;

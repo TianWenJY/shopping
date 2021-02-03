@@ -2,7 +2,7 @@ import './index.css';
 import React from 'react';
 import Header from "./Header";
 import CurrentOrderStatus from "./CurrentOrderStatus";
-import OrderItemsList from "./OrderItemsList";
+import OrderItemsList from "./OrderItemsList/OrderItemsList";
 
 class viewOrderHistory extends React.Component  {
 
